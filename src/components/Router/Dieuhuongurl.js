@@ -5,11 +5,6 @@ import Showdata from "../Showdata";
 import { Login } from "../Login";
 import { useSelector } from "react-redux";
 
-
-
-
-
-
 export const Dieuhuongurl = () => {
   const login = useSelector(state=>state.login)
   return (
@@ -17,9 +12,7 @@ export const Dieuhuongurl = () => {
             <Route exact path="/">
               {login.length>0 ? <Redirect to="/home" /> : <Login />}
             </Route>
-             {/* <Route exact path="/">
-              <Login/>
-            </Route> */}
+            
             <Route exact path="/home">
               {login.length===0 ? <Redirect to="/" /> : <Home />}
             </Route>
@@ -28,11 +21,11 @@ export const Dieuhuongurl = () => {
             </Route>
             {/* <Route exact path="/home">
               <Home/>
-            </Route> */}
-            {/* <Route path="/home/:id">
-              <Showdata/>
             </Route>
-            */}
+            <Route path="/home/:id">
+              <Showdata/>
+            </Route> */}
+           
           </Switch>
   )
 }

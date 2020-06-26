@@ -1,24 +1,19 @@
 import React from 'react'
-import { Link, Redirect } from 'react-router-dom'
-import { useSelector, useDispatch } from 'react-redux';
-import axios from 'axios'
+import { Link} from 'react-router-dom'
+import { useDispatch } from 'react-redux';
 
 export default function Header() {
-  // const loginAcc = useSelector(state=>state.Login)
-  const dispatch = useDispatch ()
+  const dispatch = useDispatch()
   const logout = () => {
-      axios
-        .get('/logout')
-        .then(
-          response => dispatch({type:"LOGIN",login:response.data})
-          );
-    };
+    sessionStorage.removeItem('username')
+    return dispatch({type:'LOG'})
+  };
     return (
         <section className="content-banner">
   <div className="container">
     <nav>
-      <label htmlFor>School name</label>
-      <label htmlFor="menu" className="menu-bar">
+      <label>School name</label>
+      <label className="menu-bar">
         <i className="fas fa-bars" />
       </label>
       <ul>

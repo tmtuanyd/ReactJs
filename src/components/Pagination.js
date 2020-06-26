@@ -6,11 +6,11 @@ export default function Pagination(props) {
         pageNumber.push(i)
     }
     return (
-        <section class="page">
+        <section className="page">
             <ul>
                 {pageNumber.map(number=>(
                     <li key={number}>
-                        <div onClick={()=>props.paginate(number)}>
+                        <div onClick={()=>props.paginate(number)} className={(props.currentPage===number)?"active":""}>
                             {number}
                         </div>
                     </li>

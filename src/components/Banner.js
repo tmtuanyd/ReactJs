@@ -4,14 +4,17 @@ import { useSelector } from 'react-redux'
 
 export default function Banner() {
     const data = useSelector (state=>state.data)
+    const vien = useSelector (state=>state.listvien)
+    const classlist = useSelector (state=>state.classlist)
     var hienthi = () =>{
       if(data!==null){
+        // console.log(data)
         return(
           <div className="box-info-group">
           <div className="box-info admin">
             <div className="inner">
-              <h3>11</h3>
-              <p>Admin</p>
+              <h3>{(vien!==null)?vien.length:""}</h3>
+              <p>Institute</p>
             </div>
             <div className="icon">
               <i className="fa fa-user-circle" />
@@ -40,7 +43,7 @@ export default function Banner() {
           </div>
           <div className="box-info class">
             <div className="inner">
-              <h3>{data.filter(el=>el.c_mean!==null).length}</h3>
+              <h3>{(classlist!==null)?classlist.length:""}</h3>
               <p>Class</p>
             </div>
             <div className="icon">
